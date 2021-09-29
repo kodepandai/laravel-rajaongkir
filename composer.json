@@ -1,22 +1,23 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "kodepintar/laravel-rajaongkir",
+    "description": "This is my package laravel-rajaongkir",
     "keywords": [
-        ":vendor_name",
+        "kodepintar",
         "laravel",
-        ":package_slug"
+        "laravel-rajaongkir",
+        "rajaongkir"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/kodepintar/laravel-rajaongkir",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Tio",
+            "email": "sangvictim@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^7.4|^8.0",
         "spatie/laravel-package-tools": "^1.4.3",
         "illuminate/contracts": "^8.37"
     },
@@ -30,13 +31,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Kodepintar\\LaravelRajaongkir\\": "src",
+            "Kodepintar\\LaravelRajaongkir\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Kodepintar\\LaravelRajaongkir\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,10 +50,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Kodepintar\\LaravelRajaongkir\\LaravelRajaongkirServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\SkeletonFacade"
+                "LaravelRajaongkir": "Kodepintar\\LaravelRajaongkir\\LaravelRajaongkirFacade"
             }
         }
     },
