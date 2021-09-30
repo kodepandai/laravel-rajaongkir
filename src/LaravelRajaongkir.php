@@ -2,49 +2,34 @@
 
 namespace Kodepintar\LaravelRajaongkir;
 
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
 class LaravelRajaongkir
 {
-    private static $baseurl_starter = 'https://api.rajaongkir.com/starter';
-    private static $baseurl_basic = 'https://api.rajaongkir.com/basic';
-    private static $baseurl_pro = 'https://pro.rajaongkir.com/api';
+    const BASE_URL = [
+        'starter' => 'https://api.rajaongkir.com/starter',
+        'basic' => 'https://api.rajaongkir.com/basic',
+        'pro' => 'https://pro.rajaongkir.com/api'
+    ];
 
     protected $url = null;
 
     public function __construct()
     {
-        $config = config('ongkir.APIKEY_RAJAONGKIR', 'starter');
+        $accountType = config('rajaongkir.ACCOUNT_TYPE');
 
-        switch ($config) {
-            case 'starter':
-                return $this->url = $this->baseurl_starter;
-
-                break;
-
-            case 'basic':
-                return $this->url = $this->baseurl_basic;
-
-                break;
-
-            case 'pro':
-                return $this->url = $this->baseurl_pro;
-
-                break;
-
-            default:
-                return $this->url = $this->baseurl_starter;
-
-                break;
-        }
+        $this->url = self::BASE_URL[$accountType];
     }
 
-    protected function requestHeader()
+    protected function apiCall(string $urlPath, array $payload = [], string $method = 'GET'): Response
     {
+        $url = $this->url.'/'.ltrim($urlPath, '/');
+
         return Http::withHeaders([
-            'key' => config('ongkir.APIKEY_RAJAONGKIR'),
+            'key' => config('rajangkir.API_KEY'),
             'content-type' => 'application/x-www-form-urlencoded',
-        ]);
+        ])->{strtolower($method)}($url, $payload);
     }
 
     /**
@@ -52,7 +37,7 @@ class LaravelRajaongkir
      */
     public function getProvince()
     {
-        return $this->requestHeader()->get($this->url . '/province');
+        return $this->apiCall('/province');
     }
 
     /**
@@ -60,7 +45,7 @@ class LaravelRajaongkir
      */
     public function getCity()
     {
-        return $this->requestHeader()->get(self::$url . '/city');
+        return $this->apiCall('/city');
     }
 
     /**
@@ -68,42 +53,30 @@ class LaravelRajaongkir
      */
     public function getSubdistrict()
     {
-        return $this->requestHeader()->get(self::$url . '/subdistrict');
+        return $this->apiCall('/subdistrict');
     }
 
     /**
      * Method “cost” digunakan untuk mengetahui tarif pengiriman (ongkos kirim) dari dan ke kecamatan tujuan tertentu dengan berat tertentu.
-     *
-     * @param [int] $origin
-     * @param [string] $originType
-     * @param [int] $destination
-     * @param [string] $destinationType
-     * @param [int] $weight
-     * @param [string] $courier
-     * @return void
      */
-    public function getCost($origin, $originType, $destination, $destinationType, $weight, $courier)
+    public function getCost(int $origin, string $originType, int $destination, string $destinationType, int $weight, string $courier)
     {
-        return $this->requestHeader()->post(self::$url . '/subdistrict', [
+        return $this->apiCall('/subdistrict', [
             "origin" => $origin,
             "originType" => $originType,
             "destination" => $destination,
             "destinationType" => $destinationType,
             "weight" => $weight,
             "courier" => $courier,
-        ]);
+        ], 'POST');
     }
 
     /**
      * Method "internationalOrigin" digunakan untuk mendapatkan daftar/nama kota yang mendukung pengiriman internasional.
-     *
-     * @param [int] $internationalOrigin
-     * @param [int] $province
-     * @return void
      */
     public function getInternationalOrigin($internationalOrigin, $province)
     {
-        return $this->requestHeader()->get(self::$url . '/v2/internationalOrigin', [
+        return $this->apiCall('/v2/internationalOrigin', [
             "internationalOrigin" => $internationalOrigin,
             "province" => $province,
         ]);
@@ -111,13 +84,10 @@ class LaravelRajaongkir
 
     /**
      * Method "internationalDestination" digunakan untuk mendapatkan daftar/nama negara tujuan pengiriman internasional.
-     *
-     * @param [int] $idCountry
-     * @return void
      */
     public function getInternationalDestination($idCountry)
     {
-        return $this->requestHeader()->get(self::$url . '/v2/internationalDestination', [
+        return $this->apiCall($this->url . '/v2/internationalDestination', [
             "id" => $idCountry,
         ]);
     }
@@ -125,21 +95,15 @@ class LaravelRajaongkir
     /**
      * Method “internationalCost” digunakan untuk mengetahui tarif pengiriman (ongkos kirim)
      * internasional dari kota-kota di Indonesia ke negara tujuan di seluruh dunia.
-     *
-     * @param [int] $origin
-     * @param [int] $destination
-     * @param [int] $weight
-     * @param [string] $courier
-     * @return void
      */
-    public function getInternationalCost($origin, $destination, $weight, $courier)
+    public function getInternationalCost(int $origin, int $destination, int $weight, string $courier)
     {
-        return $this->requestHeader()->post(self::$url . '/v2/internationalCost', [
+        return $this->apiCall($this->url . '/v2/internationalCost', [
             "origin" => $origin,
             "destination" => $destination,
             "weight" => $weight,
             "courier" => $courier,
-        ]);
+        ], 'POST');
     }
 
     /**
@@ -147,21 +111,17 @@ class LaravelRajaongkir
      */
     public function getCurrency()
     {
-        return $this->requestHeader()->post(self::$url . '/currency');
+        return $this->apiCall('/currency', [], 'POST');
     }
 
     /**
      * Method “waybill” untuk digunakan melacak/mengetahui status pengiriman berdasarkan nomor resi.
-     *
-     * @param [string] $noResi
-     * @param [string] $courier
-     * @return void
      */
     public function getTracking($noResi, $courier)
     {
-        return $this->requestHeader()->post(self::$url . '/waybill', [
+        return $this->apiCall('/waybill', [
             "waybill" => $noResi,
             "courier" => $courier,
-        ]);
+        ], 'POST');
     }
 }
