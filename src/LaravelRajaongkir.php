@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\Http;
 
 class LaravelRajaongkir
 {
-    const BASE_URL = [
+    public const BASE_URL = [
         'starter' => 'https://api.rajaongkir.com/starter',
         'basic' => 'https://api.rajaongkir.com/basic',
-        'pro' => 'https://pro.rajaongkir.com/api'
+        'pro' => 'https://pro.rajaongkir.com/api',
     ];
 
     protected $url = null;
