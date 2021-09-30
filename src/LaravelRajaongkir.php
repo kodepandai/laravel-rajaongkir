@@ -20,6 +20,8 @@ class LaravelRajaongkir
         $accountType = config('rajaongkir.ACCOUNT_TYPE');
 
         $this->url = self::BASE_URL[$accountType];
+
+        return $this;
     }
 
     protected function apiCall(string $urlPath, array $payload = [], string $method = 'GET'): Response
