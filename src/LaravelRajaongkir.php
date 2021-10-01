@@ -26,7 +26,7 @@ class LaravelRajaongkir
 
     protected function apiCall(string $urlPath, array $payload = [], string $method = 'GET'): Response
     {
-        $url = $this->url.'/'.ltrim($urlPath, '/');
+        $url = $this->url . '/' . ltrim($urlPath, '/');
 
         return Http::withHeaders([
             'key' => config('rajangkir.API_KEY'),
