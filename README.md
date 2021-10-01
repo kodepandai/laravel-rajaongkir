@@ -1,9 +1,10 @@
 # This is my package laravel-rajaongkir
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/kodepintar/laravel-rajaongkir.svg?style=flat-square)](https://packagist.org/packages/kodepintar/laravel-rajaongkir)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/kodepintar/laravel-rajaongkir/run-tests?label=tests)](https://github.com/kodepintar/laravel-rajaongkir/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/kodepintar/laravel-rajaongkir/Check%20&%20fix%20styling?label=code%20style)](https://github.com/kodepintar/laravel-rajaongkir/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/kodepintar/laravel-rajaongkir.svg?style=flat-square)](https://packagist.org/packages/kodepintar/laravel-rajaongkir)
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=Language&message=PHP&color=green">
+<img src="https://img.shields.io/static/v1?label=Version&message=8.0&color=blue">
+<img src="https://img.shields.io/static/v1?label=Framework&message=Laravel&color=red">
+</p>
 
 ---
 This repo can be used to scaffold a Laravel package. Follow these steps to get started:
@@ -18,8 +19,6 @@ This repo can be used to scaffold a Laravel package. Follow these steps to get s
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
 ## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-rajaongkir.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-rajaongkir)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
@@ -59,28 +58,10 @@ $laravel-rajaongkir = new Kodepintar\LaravelRajaongkir();
 echo $laravel-rajaongkir->echoPhrase('Hello, Kodepintar!');
 ```
 
-## Testing
-
-```bash
-composer test
-```
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
 ## Credits
 
-- [Tio](https://github.com/kodepintar)
-- [All Contributors](../../contributors)
+- [Tio](https://github.com/sangvictim)
+- [Akhmad Salafudin](https://github.com/axmad386)
 
 ## License
 
