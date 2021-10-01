@@ -89,7 +89,7 @@ class LaravelRajaongkir
      */
     public function getInternationalDestination($idCountry)
     {
-        return $this->apiCall($this->url . '/v2/internationalDestination', [
+        return $this->apiCall('/v2/internationalDestination', [
             "id" => $idCountry,
         ]);
     }
@@ -100,7 +100,7 @@ class LaravelRajaongkir
      */
     public function getInternationalCost(int $origin, int $destination, int $weight, string $courier)
     {
-        return $this->apiCall($this->url . '/v2/internationalCost', [
+        return $this->apiCall('/v2/internationalCost', [
             "origin" => $origin,
             "destination" => $destination,
             "weight" => $weight,
@@ -113,7 +113,7 @@ class LaravelRajaongkir
      */
     public function getCurrency()
     {
-        return $this->apiCall('/currency', [], 'POST');
+        return $this->apiCall('/currency');
     }
 
     /**
