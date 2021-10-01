@@ -3,8 +3,8 @@
 namespace Kodepintar\LaravelRajaongkir\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Kodepintar\LaravelRajaongkir\LaravelRajaongkirServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

@@ -18,19 +18,23 @@ class LaravelRajaongkir
 
         switch ($config) {
             case 'starter':
-                return $this->url =  $this->baseurl_starter;
+                return $this->url = $this->baseurl_starter;
+
                 break;
 
             case 'basic':
                 return $this->url = $this->baseurl_basic;
+
                 break;
 
             case 'pro':
                 return $this->url = $this->baseurl_pro;
+
                 break;
 
             default:
                 return $this->url = $this->baseurl_starter;
+
                 break;
         }
     }
@@ -38,8 +42,8 @@ class LaravelRajaongkir
     protected function requestHeader()
     {
         return Http::withHeaders([
-            'key'          => config('ongkir.APIKEY_RAJAONGKIR'),
-            'content-type' => 'application/x-www-form-urlencoded'
+            'key' => config('ongkir.APIKEY_RAJAONGKIR'),
+            'content-type' => 'application/x-www-form-urlencoded',
         ]);
     }
 
@@ -81,12 +85,12 @@ class LaravelRajaongkir
     public function getCost($origin, $originType, $destination, $destinationType, $weight, $courier)
     {
         return $this->requestHeader()->post(self::$url . '/subdistrict', [
-            "origin"          => $origin,
-            "originType"      => $originType,
-            "destination"     => $destination,
+            "origin" => $origin,
+            "originType" => $originType,
+            "destination" => $destination,
             "destinationType" => $destinationType,
-            "weight"          => $weight,
-            "courier"         => $courier
+            "weight" => $weight,
+            "courier" => $courier,
         ]);
     }
 
@@ -101,7 +105,7 @@ class LaravelRajaongkir
     {
         return $this->requestHeader()->get(self::$url . '/v2/internationalOrigin', [
             "internationalOrigin" => $internationalOrigin,
-            "province"            => $province
+            "province" => $province,
         ]);
     }
 
@@ -131,10 +135,10 @@ class LaravelRajaongkir
     public function getInternationalCost($origin, $destination, $weight, $courier)
     {
         return $this->requestHeader()->post(self::$url . '/v2/internationalCost', [
-            "origin"          => $origin,
-            "destination"     => $destination,
-            "weight"          => $weight,
-            "courier"         => $courier
+            "origin" => $origin,
+            "destination" => $destination,
+            "weight" => $weight,
+            "courier" => $courier,
         ]);
     }
 
@@ -157,7 +161,7 @@ class LaravelRajaongkir
     {
         return $this->requestHeader()->post(self::$url . '/waybill', [
             "waybill" => $noResi,
-            "courier" => $courier
+            "courier" => $courier,
         ]);
     }
 }
