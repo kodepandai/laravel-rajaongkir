@@ -2,9 +2,9 @@
 
 namespace Kodepintar\LaravelRajaongkir;
 
+use Kodepintar\LaravelRajaongkir\Commands\LaravelRajaongkirCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Kodepintar\LaravelRajaongkir\Commands\LaravelRajaongkirCommand;
 
 class LaravelRajaongkirServiceProvider extends PackageServiceProvider
 {

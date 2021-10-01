@@ -4,11 +4,11 @@ return  [
     /**
      * api key yang di dapat dari akun raja ongkir
      */
-    'API_KEY' => env('APIKEY_RAJAONGKIR', 'SomeRandomString'),
+    'API_KEY' => env('RAJAONGKIR_KEY', 'somerandomstring'),
 
     /**
      * tipe akun untuk menentukan api url
-     * Starter, Basic, Pro
+     * starter, basic, pro
      */
-    'TIPE_AKUN' => env('TIPE_AKUN_RAJAONGKIR', 'starter')
+    'ACCOUNT_TYPE' => env('RAJAONGKIR_TYPE', 'starter')
 ];
