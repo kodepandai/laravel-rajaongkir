@@ -1,4 +1,4 @@
-*Baca ini dalam bahasa: [Indonesia](README-id.md)*
+*Baca ini dalam bahasa: [Indonesia](README-ID.md)*
 # This is my package laravel-rajaongkir
 
 <p align="center">
