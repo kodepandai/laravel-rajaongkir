@@ -1,5 +1,6 @@
-*Baca ini dalam bahasa: [Indonesia](README-ID.md)*
-# This is my package laravel-rajaongkir
+*Baca ini dalam bahasa: [Inggris](README.md)*
+
+# laravel-rajaongkir
 
 <p align="center">
 <img src="https://img.shields.io/static/v1?label=Language&message=PHP&color=green">
@@ -7,47 +8,47 @@
 <img src="https://img.shields.io/static/v1?label=Framework&message=Laravel&color=red">
 </p>
 
-## Installation
+## Penginstalan
 
-You can install the package via composer:
+Anda dapat menginstall package ini melalui composer:
 
 ```bash
 composer require kodepintar/laravel-rajaongkir
 ```
 
-You can publish and run the migrations with:
+Anda dapat mempublish dan menjalankan migrasi dengan cara:
 
 ```bash
 php artisan vendor:publish --provider="Kodepintar\LaravelRajaongkir\LaravelRajaongkirServiceProvider" --tag="laravel-rajaongkir-migrations"
 php artisan migrate
 ```
 
-You can publish the config file with:
+Anda dapat mempublish file config dengan cara:
 ```bash
 php artisan vendor:publish --provider="Kodepintar\LaravelRajaongkir\LaravelRajaongkirServiceProvider" --tag="laravel-rajaongkir-config"
 ```
 
-This is the contents of the published config file:
+Ini adalah konten dari file config yang telah dipublish:
 
 ```php
 return [
 ];
 ```
 
-## Usage
+## Penggunaan
 
 ```php
 $laravel-rajaongkir = new Kodepintar\LaravelRajaongkir();
 echo $laravel-rajaongkir->echoPhrase('Hello, Kodepintar!');
 ```
 
-## Credits
+## Kredit
 
 - [Tio](https://github.com/sangvictim)
 - [Akhmad Salafudin](https://github.com/axmad386)
 
-this repo used template from spatie
+Repositori ini menggunakan template dari spatie
 
-## License
+## Lisensi
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+Lisensi MIT (MIT). Harap lihat [File Lisensi](LICENSE.md) Untuk informasi lebih lanjut.
