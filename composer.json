@@ -1,6 +1,7 @@
 {
     "name": "kodepintar/laravel-rajaongkir",
     "description": "This is my package laravel-rajaongkir",
+    "version": "1.0",
     "keywords": [
         "kodepintar",
         "laravel",
