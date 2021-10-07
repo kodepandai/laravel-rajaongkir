@@ -2,7 +2,6 @@
 
 namespace Kodepintar\LaravelRajaongkir;
 
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
 class LaravelRajaongkir
