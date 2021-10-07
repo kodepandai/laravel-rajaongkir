@@ -32,14 +32,19 @@ Ini adalah konten dari file config yang telah dipublish:
 
 ```php
 return [
+    'API_KEY' => env('RAJAONGKIR_KEY', 'somerandomstring'),
+    'ACCOUNT_TYPE' => env('RAJAONGKIR_TYPE', 'starter')
 ];
 ```
 
 ## Penggunaan
 
 ```php
-$laravel-rajaongkir = new Kodepintar\LaravelRajaongkir();
-echo $laravel-rajaongkir->echoPhrase('Hello, Kodepintar!');
+use Kodepintar\LaravelRajaongkir\LaravelRajaongkir as Ongkir;
+
+$data = new Ongkir();
+$data = $data->getProvince();
+return $data;
 ```
 
 ## Kredit

@@ -2,12 +2,11 @@
 
 namespace Kodepintar\LaravelRajaongkir;
 
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
 class LaravelRajaongkir
 {
-    public const BASE_URL = [
+    protected $BASE_URL = [
         'starter' => 'https://api.rajaongkir.com/starter',
         'basic' => 'https://api.rajaongkir.com/basic',
         'pro' => 'https://pro.rajaongkir.com/api',
@@ -17,19 +16,19 @@ class LaravelRajaongkir
 
     public function __construct()
     {
-        $accountType = config('rajaongkir.ACCOUNT_TYPE');
+        $accountType = config('rajaongkir.ACCOUNT_TYPE', env('RAJAONGKIR_TYPE'));
 
-        $this->url = self::BASE_URL[$accountType];
+        $this->url = $this->BASE_URL[$accountType];
 
         return $this;
     }
 
-    protected function apiCall(string $urlPath, array $payload = [], string $method = 'GET'): Response
+    protected function apiCall(string $urlPath, array $payload = [], string $method = 'GET')
     {
         $url = $this->url . '/' . ltrim($urlPath, '/');
 
         return Http::withHeaders([
-            'key' => config('rajangkir.API_KEY'),
+            'key' => config('rajaongkir.API_KEY', env('RAJAONGKIR_KEY')),
             'content-type' => 'application/x-www-form-urlencoded',
         ])->{strtolower($method)}($url, $payload);
     }

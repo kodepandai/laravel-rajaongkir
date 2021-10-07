@@ -31,14 +31,19 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'API_KEY' => env('RAJAONGKIR_KEY', 'somerandomstring'),
+    'ACCOUNT_TYPE' => env('RAJAONGKIR_TYPE', 'starter')
 ];
 ```
 
 ## Usage
 
 ```php
-$laravel-rajaongkir = new Kodepintar\LaravelRajaongkir();
-echo $laravel-rajaongkir->echoPhrase('Hello, Kodepintar!');
+use Kodepintar\LaravelRajaongkir\LaravelRajaongkir as Ongkir;
+
+$data = new Ongkir();
+$data = $data->getProvince();
+return $data;
 ```
 
 ## Credits
