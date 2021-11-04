@@ -7,7 +7,6 @@ use Illuminate\Support\ServiceProvider;
 
 class RajaOngkirServiceProvider extends ServiceProvider
 {
-
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/rajaongkir.php', 'rajaongkir');
