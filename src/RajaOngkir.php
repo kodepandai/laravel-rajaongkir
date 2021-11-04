@@ -1,10 +1,10 @@
 <?php
 
-namespace Kodepintar\LaravelRajaongkir;
+namespace Kodepintar\LaravelRajaOngkir;
 
 use Illuminate\Support\Facades\Http;
 
-class LaravelRajaongkir
+class RajaOngkir
 {
     protected $BASE_URL = [
         'starter' => 'https://api.rajaongkir.com/starter',

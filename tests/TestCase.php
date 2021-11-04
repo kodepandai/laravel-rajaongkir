@@ -1,9 +1,8 @@
 <?php
 
-namespace Kodepintar\LaravelRajaongkir\Tests;
+namespace Kodepintar\LaravelRajaOngkir\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Kodepintar\LaravelRajaongkir\LaravelRajaongkirServiceProvider;
+use Kodepintar\LaravelRajaOngkir\RajaOngkirServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -11,16 +10,12 @@ class TestCase extends Orchestra
     protected function setUp(): void
     {
         parent::setUp();
-
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Kodepintar\\LaravelRajaongkir\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            LaravelRajaongkirServiceProvider::class,
+            RajaOngkirServiceProvider::class,
         ];
     }
 

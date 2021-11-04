@@ -1,5 +1,5 @@
 <?php
-// config for Kodepintar/LaravelRajaongkir
+// config for Kodepintar/LaravelRajaOngkir
 return  [
     /**
      * api key yang di dapat dari akun raja ongkir
