@@ -1,10 +1,10 @@
 *Baca ini dalam bahasa: [Inggris](README.md)*
 
-# laravel-rajaongkir
+# Laravel RajaOngkir API Wrapper
 
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=Language&message=PHP&color=green">
-<img src="https://img.shields.io/static/v1?label=Version&message=8.0&color=blue">
+<img src="https://img.shields.io/static/v1?label=PHP&message=8.0&color=green">
+<img src="https://img.shields.io/static/v1?label=Version&message=2.0.0&color=blue">
 <img src="https://img.shields.io/static/v1?label=Framework&message=Laravel&color=red">
 </p>
 
@@ -16,16 +16,9 @@ Anda dapat menginstall package ini melalui composer:
 composer require kodepintar/laravel-rajaongkir
 ```
 
-Anda dapat mempublish dan menjalankan migrasi dengan cara:
-
-```bash
-php artisan vendor:publish --provider="Kodepintar\LaravelRajaongkir\LaravelRajaongkirServiceProvider" --tag="laravel-rajaongkir-migrations"
-php artisan migrate
-```
-
 Anda dapat mempublish file config dengan cara:
 ```bash
-php artisan vendor:publish --provider="Kodepintar\LaravelRajaongkir\LaravelRajaongkirServiceProvider" --tag="laravel-rajaongkir-config"
+php artisan vendor:publish --tag="rajaongkir-config"
 ```
 
 Ini adalah konten dari file config yang telah dipublish:
@@ -40,10 +33,10 @@ return [
 ## Penggunaan
 
 ```php
-use Kodepintar\LaravelRajaongkir\LaravelRajaongkir as Ongkir;
+use Kodepintar\LaravelRajaOngkir\Facades\RajaOngkir;
 
-$data = new Ongkir();
-$data = $data->getProvince();
+$data = RajaOngkir::getProvince();
+
 return $data;
 ```
 
@@ -52,7 +45,7 @@ return $data;
 - [Tio](https://github.com/sangvictim)
 - [Akhmad Salafudin](https://github.com/axmad386)
 
-Repositori ini menggunakan template dari spatie
+Repositori ini menggunakan template dari [spatie](https://github.com/spatie/package-skeleton-laravel)
 
 ## Lisensi
 
