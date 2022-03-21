@@ -35,7 +35,6 @@ return [
 use Kodepintar\LaravelRajaOngkir\Facades\RajaOngkir;
 
 return RajaOngkir::getProvince();
-
 ```
 
 ## Credits

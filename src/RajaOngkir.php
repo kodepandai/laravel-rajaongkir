@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Http;
 
 class RajaOngkir
 {
+  
     protected static $BASE_URL = [
         'starter' => 'https://api.rajaongkir.com/starter',
         'basic' => 'https://api.rajaongkir.com/basic',
@@ -22,6 +23,7 @@ class RajaOngkir
 
         return $this;
     }
+
 
     protected static function apiCall(string $urlPath, array $payload = [], string $method = 'GET')
     {
