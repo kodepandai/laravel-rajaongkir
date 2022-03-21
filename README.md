@@ -34,9 +34,8 @@ return [
 ```php
 use Kodepintar\LaravelRajaOngkir\Facades\RajaOngkir;
 
-$data = RajaOngkir::getProvince();
+return RajaOngkir::getProvince();
 
-return $data;
 ```
 
 ## Credits
