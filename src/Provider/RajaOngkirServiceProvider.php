@@ -8,7 +8,6 @@ use Kodepintar\LaravelRajaOngkir\RajaOngkir;
 
 class RajaOngkirServiceProvider extends ServiceProvider
 {
-
     public function boot(): void
     {
         $this->publishes(

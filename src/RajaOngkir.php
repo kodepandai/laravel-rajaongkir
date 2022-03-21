@@ -35,7 +35,7 @@ class RajaOngkir
 
     /**
      * Method "province" digunakan untuk mendapatkan daftar propinsi yang ada di Indonesia.
-     * 
+     *
      * @return void
      */
     public static function getProvince()
@@ -45,7 +45,7 @@ class RajaOngkir
 
     /**
      * Method "city" digunakan untuk mendapatkan daftar kota/kabupaten yang ada di Indonesia.
-     * 
+     *
      * @return void
      */
     public static function getCity()
@@ -55,7 +55,7 @@ class RajaOngkir
 
     /**
      * Method "subdistrict" digunakan untuk mendapatkan daftar kecamatan yang ada di Indonesia.
-     * 
+     *
      * @return void
      */
     public static function getSubdistrict()
@@ -66,11 +66,11 @@ class RajaOngkir
     /**
      * Method “cost” digunakan untuk mengetahui tarif pengiriman (ongkos kirim) dari dan ke kecamatan tujuan tertentu dengan berat tertentu.
      *
-     * @param integer $origin
+     * @param int $origin
      * @param string $originType
-     * @param integer $destination
+     * @param int $destination
      * @param string $destinationType
-     * @param integer $weight
+     * @param int $weight
      * @param string $courier
      * @return void
      */
@@ -89,8 +89,8 @@ class RajaOngkir
     /**
      * Method "internationalOrigin" digunakan untuk mendapatkan daftar/nama kota yang mendukung pengiriman internasional.
      *
-     * @param integer $idCity
-     * @param integer $province
+     * @param int $idCity
+     * @param int $province
      * @return void
      */
     public static function getInternationalOrigin(int $idCity, int $province)
@@ -114,7 +114,7 @@ class RajaOngkir
     /**
      * Method "internationalDestination" digunakan untuk mendapatkan daftar/nama negara tujuan pengiriman internasional.
      *
-     * @param integer $idCountry
+     * @param int $idCountry
      * @return void
      */
     public static function getInternationalDestination(int $idCountry)
@@ -128,9 +128,9 @@ class RajaOngkir
      * Method “internationalCost” digunakan untuk mengetahui tarif pengiriman (ongkos kirim)
      * internasional dari kota-kota di Indonesia ke negara tujuan di seluruh dunia.
      *
-     * @param integer $origin
-     * @param integer $destination
-     * @param integer $weight
+     * @param int $origin
+     * @param int $destination
+     * @param int $weight
      * @param string $courier
      * @return void
      */
