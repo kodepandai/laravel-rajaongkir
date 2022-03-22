@@ -6,77 +6,65 @@ use Illuminate\Support\Facades\Http;
 
 class RajaOngkir
 {
-    protected static $BASE_URL = [
+    const BASE_URL = [
         'starter' => 'https://api.rajaongkir.com/starter',
         'basic' => 'https://api.rajaongkir.com/basic',
         'pro' => 'https://pro.rajaongkir.com/api',
     ];
 
-    protected static $url = null;
+    protected string $url = null;
+
+    protected array $config = [];
 
     public function __construct()
     {
-        $accountType = config('rajaongkir.ACCOUNT_TYPE', env('RAJAONGKIR_TYPE'));
+        $this->config = config('rajaongkir');
 
-        self::$url = self::$BASE_URL[$accountType];
+        $this->url = self::BASE_URL[$this->config['ACCOUNT_TYPE']];
 
         return $this;
     }
 
-    protected static function apiCall(string $urlPath, array $payload = [], string $method = 'GET')
+    protected function apiCall(string $urlPath, array $payload = [], string $method = 'GET')
     {
-        $url = self::$url . '/' . ltrim($urlPath, '/');
+        $url = $this->url . '/' . ltrim($urlPath, '/');
 
         return Http::withHeaders([
-            'key' => config('rajaongkir.API_KEY', env('RAJAONGKIR_KEY')),
+            'key' => $this->config['API_KEY'],
             'content-type' => 'application/x-www-form-urlencoded',
         ])->{strtolower($method)}($url, $payload);
     }
 
     /**
      * Method "province" digunakan untuk mendapatkan daftar propinsi yang ada di Indonesia.
-     *
-     * @return void
      */
-    public static function getProvince()
+    public function getProvince(): mixed
     {
-        return self::apiCall('/province');
+        return $this->apiCall('/province');
     }
 
     /**
      * Method "city" digunakan untuk mendapatkan daftar kota/kabupaten yang ada di Indonesia.
-     *
-     * @return void
      */
-    public static function getCity()
+    public function getCity(): mixed
     {
-        return self::apiCall('/city');
+        return $this->apiCall('/city');
     }
 
     /**
      * Method "subdistrict" digunakan untuk mendapatkan daftar kecamatan yang ada di Indonesia.
-     *
-     * @return void
      */
-    public static function getSubdistrict()
+    public function getSubdistrict(): mixed
     {
-        return self::apiCall('/subdistrict');
+        return $this->apiCall('/subdistrict');
     }
 
     /**
      * Method “cost” digunakan untuk mengetahui tarif pengiriman (ongkos kirim) dari dan ke kecamatan tujuan tertentu dengan berat tertentu.
-     *
-     * @param int $origin
-     * @param string $originType
-     * @param int $destination
-     * @param string $destinationType
-     * @param int $weight
-     * @param string $courier
-     * @return void
      */
-    public static function getCost(int $origin, string $originType, int $destination, string $destinationType, int $weight, string $courier)
+    public function getCost(int $origin, string $originType, int $destination, string $destinationType, int $weight, string $courier): mixed
     {
-        return self::apiCall('/subdistrict', [
+        return $this->apiCall('/subdistrict', [
             "origin" => $origin,
             "originType" => $originType,
             "destination" => $destination,
@@ -88,38 +76,29 @@ class RajaOngkir
 
     /**
      * Method "internationalOrigin" digunakan untuk mendapatkan daftar/nama kota yang mendukung pengiriman internasional.
-     *
-     * @param int $idCity
-     * @param int $province
-     * @return void
      */
-    public static function getInternationalOrigin(int $idCity, int $province)
+    public function getInternationalOrigin(int $idCity, int $province): mixed
     {
-        return self::apiCall('/v2/internationalOrigin', [
+        return $this->apiCall('/v2/internationalOrigin', [
             "id" => $idCity,
             "province" => $province,
         ]);
     }
 
     /**
-     * JMethod "getInternationalCountry" menampilkan semua negara pengiriman internasional.
-     *
-     * @return void
+     * Method "getInternationalCountry" menampilkan semua negara pengiriman internasional.
      */
-    public static function getInternationalCountry()
+    public function getInternationalCountry(): mixed
     {
-        return self::apiCall('/v2/internationalDestination');
+        return $this->apiCall('/v2/internationalDestination');
     }
 
     /**
      * Method "internationalDestination" digunakan untuk mendapatkan daftar/nama negara tujuan pengiriman internasional.
-     *
-     * @param int $idCountry
-     * @return void
      */
-    public static function getInternationalDestination(int $idCountry)
+    public function getInternationalDestination(int $idCountry): mixed
     {
-        return self::apiCall('/v2/internationalDestination', [
+        return $this->apiCall('/v2/internationalDestination', [
             "id" => $idCountry,
         ]);
     }
@@ -127,16 +106,10 @@ class RajaOngkir
     /**
      * Method “internationalCost” digunakan untuk mengetahui tarif pengiriman (ongkos kirim)
      * internasional dari kota-kota di Indonesia ke negara tujuan di seluruh dunia.
-     *
-     * @param int $origin
-     * @param int $destination
-     * @param int $weight
-     * @param string $courier
-     * @return void
      */
-    public static function getInternationalCost(int $origin, int $destination, int $weight, string $courier)
+    public function getInternationalCost(int $origin, int $destination, int $weight, string $courier): mixed
     {
-        return self::apiCall('/v2/internationalCost', [
+        return $this->apiCall('/v2/internationalCost', [
             "origin" => $origin,
             "destination" => $destination,
             "weight" => $weight,
@@ -146,24 +119,18 @@ class RajaOngkir
 
     /**
      * Method "currency" digunakan untuk mendapatkan informasi nilai tukar rupiah terhadap US dollar.
-     *
-     * @return void
      */
-    public static function getCurrency()
+    public function getCurrency(): mixed
     {
-        return self::apiCall('/currency');
+        return $this->apiCall('/currency');
     }
 
     /**
      * Method "getTracking" untuk digunakan melacak/mengetahui status pengiriman berdasarkan nomor resi.
-     *
-     * @param string $noResi
-     * @param string $courier
-     * @return void
      */
-    public static function getTracking(string $noResi, string $courier)
+    public function getTracking(string $noResi, string $courier): mixed
     {
-        return self::apiCall('/waybill', [
+        return $this->apiCall('/waybill', [
             "waybill" => $noResi,
             "courier" => $courier,
         ], 'POST');

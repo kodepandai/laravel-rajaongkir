@@ -5,16 +5,16 @@ namespace Kodepintar\LaravelRajaOngkir\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static void getProvince()
- * @method static void getCity()
- * @method static void getSubdistrict()
- * @method static void getCost(int $origin, string $originType, int $destination, string $destinationType, int $weight, string $courier)
- * @method static void getInternationalOrigin(int $idCity, int $province)
- * @method static void getInternationalCountry()
- * @method static void getInternationalDestination(int $idCountry)
- * @method static void getInternationalCost(int $origin, int $destination, int $weight, string $courier)
- * @method static void getCurrency()
- * @method static void getTracking(string $noResi, string $courier)
+ * @method static mixed getProvince()
+ * @method static mixed getCity()
+ * @method static mixed getSubdistrict()
+ * @method static mixed getCost(int $origin, string $originType, int $destination, string $destinationType, int $weight, string $courier)
+ * @method static mixed getInternationalOrigin(int $idCity, int $province)
+ * @method static mixed getInternationalCountry()
+ * @method static mixed getInternationalDestination(int $idCountry)
+ * @method static mixed getInternationalCost(int $origin, int $destination, int $weight, string $courier)
+ * @method static mixed getCurrency()
+ * @method static mixed getTracking(string $noResi, string $courier)
  *
  * @see \Kodepintar\LaravelRajaOngkir\RajaOngkir
  */
