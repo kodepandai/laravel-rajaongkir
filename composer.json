@@ -1,7 +1,6 @@
 {
     "name": "kodepandai/laravel-rajaongkir",
     "description": "RajaOngkir wrapper for Laravel",
-    "version": "3.0.0",
     "keywords": [
         "kodepandai",
         "laravel",

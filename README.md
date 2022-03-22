@@ -3,7 +3,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/static/v1?label=PHP&message=8.0&color=green">
-<img src="https://img.shields.io/static/v1?label=Version&message=2.0.1&color=blue">
+<img src="https://img.shields.io/static/v1?label=Version&message=3.0.0&color=blue">
 <img src="https://img.shields.io/static/v1?label=Framework&message=Laravel&color=red">
 </p>
 
