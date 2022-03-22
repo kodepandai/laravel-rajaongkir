@@ -1,8 +1,8 @@
 <?php
 
-namespace Kodepintar\LaravelRajaOngkir\Tests;
+namespace Kodepandai\LaravelRajaOngkir\Tests;
 
-use Kodepintar\LaravelRajaOngkir\Provider\RajaOngkirServiceProvider;
+use Kodepandai\LaravelRajaOngkir\Provider\RajaOngkirServiceProvider;
 
 use Orchestra\Testbench\TestCase as Orchestra;
 

@@ -1,14 +1,14 @@
 {
-    "name": "kodepintar/laravel-rajaongkir",
+    "name": "kodepandai/laravel-rajaongkir",
     "description": "RajaOngkir wrapper for Laravel",
-    "version": "2.0.1",
+    "version": "3.0.0",
     "keywords": [
-        "kodepintar",
+        "kodepandai",
         "laravel",
         "laravel-rajaongkir",
         "rajaongkir"
     ],
-    "homepage": "https://github.com/kodepintar/laravel-rajaongkir",
+    "homepage": "https://github.com/kodepandai/laravel-rajaongkir",
     "license": "MIT",
     "authors": [
         {
@@ -34,12 +34,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Kodepintar\\LaravelRajaOngkir\\": "src"
+            "Kodepandai\\LaravelRajaOngkir\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Kodepintar\\LaravelRajaOngkir\\Tests\\": "tests"
+            "Kodepandai\\LaravelRajaOngkir\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -52,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Kodepintar\\LaravelRajaOngkir\\Provider\\RajaOngkirServiceProvider"
+                "Kodepandai\\LaravelRajaOngkir\\Provider\\RajaOngkirServiceProvider"
             ]
         }
     },

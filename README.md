@@ -12,7 +12,7 @@
 You can install the package via composer:
 
 ```bash
-composer require kodepintar/laravel-rajaongkir
+composer require kodepandai/laravel-rajaongkir
 ```
 
 You can publish the config file with:
@@ -32,7 +32,7 @@ return [
 ## Usage
 
 ```php
-use Kodepintar\LaravelRajaOngkir\Facades\RajaOngkir;
+use Kodepandai\LaravelRajaOngkir\Facades\RajaOngkir;
 
 return RajaOngkir::getProvince();
 ```

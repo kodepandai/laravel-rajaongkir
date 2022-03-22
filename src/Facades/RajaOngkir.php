@@ -1,6 +1,6 @@
 <?php
 
-namespace Kodepintar\LaravelRajaOngkir\Facades;
+namespace Kodepandai\LaravelRajaOngkir\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static mixed getCurrency()
  * @method static mixed getTracking(string $noResi, string $courier)
  *
- * @see \Kodepintar\LaravelRajaOngkir\RajaOngkir
+ * @see \Kodepandai\LaravelRajaOngkir\RajaOngkir
  */
 class RajaOngkir extends Facade
 {

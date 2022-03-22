@@ -13,7 +13,7 @@
 Anda dapat menginstall package ini melalui composer:
 
 ```bash
-composer require kodepintar/laravel-rajaongkir
+composer require kodepandai/laravel-rajaongkir
 ```
 
 Anda dapat mempublish file config dengan cara:
@@ -33,7 +33,7 @@ return [
 ## Penggunaan
 
 ```php
-use Kodepintar\LaravelRajaOngkir\Facades\RajaOngkir;
+use Kodepandai\LaravelRajaOngkir\Facades\RajaOngkir;
 
 return RajaOngkir::getProvince();
 

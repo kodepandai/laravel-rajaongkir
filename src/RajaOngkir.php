@@ -1,6 +1,6 @@
 <?php
 
-namespace Kodepintar\LaravelRajaOngkir;
+namespace Kodepandai\LaravelRajaOngkir;
 
 use Illuminate\Support\Facades\Http;
 

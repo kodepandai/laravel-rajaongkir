@@ -1,10 +1,10 @@
 <?php
 
-namespace Kodepintar\LaravelRajaOngkir\Provider;
+namespace Kodepandai\LaravelRajaOngkir\Provider;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
-use Kodepintar\LaravelRajaOngkir\RajaOngkir;
+use Kodepandai\LaravelRajaOngkir\RajaOngkir;
 
 class RajaOngkirServiceProvider extends ServiceProvider
 {
