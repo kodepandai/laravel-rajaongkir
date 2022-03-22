@@ -4,7 +4,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/static/v1?label=PHP&message=8.0&color=green">
-<img src="https://img.shields.io/static/v1?label=Version&message=2.0.0&color=blue">
+<img src="https://img.shields.io/static/v1?label=Version&message=2.0.1&color=blue">
 <img src="https://img.shields.io/static/v1?label=Framework&message=Laravel&color=red">
 </p>
 
@@ -35,9 +35,8 @@ return [
 ```php
 use Kodepintar\LaravelRajaOngkir\Facades\RajaOngkir;
 
-$data = RajaOngkir::getProvince();
+return RajaOngkir::getProvince();
 
-return $data;
 ```
 
 ## Kredit

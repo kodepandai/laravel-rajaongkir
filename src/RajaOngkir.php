@@ -6,19 +6,21 @@ use Illuminate\Support\Facades\Http;
 
 class RajaOngkir
 {
-    protected $BASE_URL = [
+    public const BASE_URL = [
         'starter' => 'https://api.rajaongkir.com/starter',
         'basic' => 'https://api.rajaongkir.com/basic',
         'pro' => 'https://pro.rajaongkir.com/api',
     ];
 
-    protected $url = null;
+    protected string $url;
+
+    protected array $config = [];
 
     public function __construct()
     {
-        $accountType = config('rajaongkir.ACCOUNT_TYPE', env('RAJAONGKIR_TYPE'));
+        $this->config = config('rajaongkir');
 
-        $this->url = $this->BASE_URL[$accountType];
+        $this->url = self::BASE_URL[$this->config['ACCOUNT_TYPE']];
 
         return $this;
     }
@@ -28,7 +30,7 @@ class RajaOngkir
         $url = $this->url . '/' . ltrim($urlPath, '/');
 
         return Http::withHeaders([
-            'key' => config('rajaongkir.API_KEY', env('RAJAONGKIR_KEY')),
+            'key' => $this->config['API_KEY'],
             'content-type' => 'application/x-www-form-urlencoded',
         ])->{strtolower($method)}($url, $payload);
     }
@@ -36,7 +38,7 @@ class RajaOngkir
     /**
      * Method "province" digunakan untuk mendapatkan daftar propinsi yang ada di Indonesia.
      */
-    public function getProvince()
+    public function getProvince(): mixed
     {
         return $this->apiCall('/province');
     }
@@ -44,7 +46,7 @@ class RajaOngkir
     /**
      * Method "city" digunakan untuk mendapatkan daftar kota/kabupaten yang ada di Indonesia.
      */
-    public function getCity()
+    public function getCity(): mixed
     {
         return $this->apiCall('/city');
     }
@@ -52,7 +54,7 @@ class RajaOngkir
     /**
      * Method "subdistrict" digunakan untuk mendapatkan daftar kecamatan yang ada di Indonesia.
      */
-    public function getSubdistrict()
+    public function getSubdistrict(): mixed
     {
         return $this->apiCall('/subdistrict');
     }
@@ -60,7 +62,7 @@ class RajaOngkir
     /**
      * Method “cost” digunakan untuk mengetahui tarif pengiriman (ongkos kirim) dari dan ke kecamatan tujuan tertentu dengan berat tertentu.
      */
-    public function getCost(int $origin, string $originType, int $destination, string $destinationType, int $weight, string $courier)
+    public function getCost(int $origin, string $originType, int $destination, string $destinationType, int $weight, string $courier): mixed
     {
         return $this->apiCall('/subdistrict', [
             "origin" => $origin,
@@ -75,18 +77,26 @@ class RajaOngkir
     /**
      * Method "internationalOrigin" digunakan untuk mendapatkan daftar/nama kota yang mendukung pengiriman internasional.
      */
-    public function getInternationalOrigin($internationalOrigin, $province)
+    public function getInternationalOrigin(int $idCity, int $province): mixed
     {
         return $this->apiCall('/v2/internationalOrigin', [
-            "internationalOrigin" => $internationalOrigin,
+            "id" => $idCity,
             "province" => $province,
         ]);
     }
 
     /**
+     * Method "getInternationalCountry" menampilkan semua negara pengiriman internasional.
+     */
+    public function getInternationalCountry(): mixed
+    {
+        return $this->apiCall('/v2/internationalDestination');
+    }
+
+    /**
      * Method "internationalDestination" digunakan untuk mendapatkan daftar/nama negara tujuan pengiriman internasional.
      */
-    public function getInternationalDestination($idCountry)
+    public function getInternationalDestination(int $idCountry): mixed
     {
         return $this->apiCall('/v2/internationalDestination', [
             "id" => $idCountry,
@@ -97,7 +107,7 @@ class RajaOngkir
      * Method “internationalCost” digunakan untuk mengetahui tarif pengiriman (ongkos kirim)
      * internasional dari kota-kota di Indonesia ke negara tujuan di seluruh dunia.
      */
-    public function getInternationalCost(int $origin, int $destination, int $weight, string $courier)
+    public function getInternationalCost(int $origin, int $destination, int $weight, string $courier): mixed
     {
         return $this->apiCall('/v2/internationalCost', [
             "origin" => $origin,
@@ -110,15 +120,15 @@ class RajaOngkir
     /**
      * Method "currency" digunakan untuk mendapatkan informasi nilai tukar rupiah terhadap US dollar.
      */
-    public function getCurrency()
+    public function getCurrency(): mixed
     {
         return $this->apiCall('/currency');
     }
 
     /**
-     * Method “waybill” untuk digunakan melacak/mengetahui status pengiriman berdasarkan nomor resi.
+     * Method "getTracking" untuk digunakan melacak/mengetahui status pengiriman berdasarkan nomor resi.
      */
-    public function getTracking($noResi, $courier)
+    public function getTracking(string $noResi, string $courier): mixed
     {
         return $this->apiCall('/waybill', [
             "waybill" => $noResi,
