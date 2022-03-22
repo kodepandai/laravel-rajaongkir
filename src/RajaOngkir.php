@@ -12,7 +12,7 @@ class RajaOngkir
         'pro' => 'https://pro.rajaongkir.com/api',
     ];
 
-    protected string $url = null;
+    protected string $url;
 
     protected array $config = [];
 
