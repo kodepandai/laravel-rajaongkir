@@ -1,13 +1,13 @@
 {
-    "name": "kodepandai/laravel-rajaongkir",
+    "name": "dinorain/laravel-rajaongkir",
     "description": "RajaOngkir wrapper for Laravel",
     "keywords": [
-        "kodepandai",
+        "dinorain",
         "laravel",
         "laravel-rajaongkir",
         "rajaongkir"
     ],
-    "homepage": "https://github.com/kodepandai/laravel-rajaongkir",
+    "homepage": "https://github.com/dinorain/laravel-rajaongkir",
     "license": "MIT",
     "authors": [
         {
