@@ -64,7 +64,7 @@ class RajaOngkir
      */
     public function getCost(int $origin, string $originType, int $destination, string $destinationType, int $weight, string $courier): mixed
     {
-        return $this->apiCall('/subdistrict', [
+        return $this->apiCall('/cost', [
             "origin" => $origin,
             "originType" => $originType,
             "destination" => $destination,
