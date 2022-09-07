@@ -41,7 +41,7 @@ class RajaOngkir
     public function getProvince(int $idProvince = null): mixed
     {
         return $this->apiCall('/province', [
-            'id' => $idProvince
+            'id' => $idProvince,
         ], 'GET');
     }
 
