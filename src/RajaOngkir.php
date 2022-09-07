@@ -38,25 +38,33 @@ class RajaOngkir
     /**
      * Method "province" digunakan untuk mendapatkan daftar propinsi yang ada di Indonesia.
      */
-    public function getProvince(): mixed
+    public function getProvince(int $idProvince = null): mixed
     {
-        return $this->apiCall('/province');
+        return $this->apiCall('/province', [
+            'id' => $idProvince
+        ], 'GET');
     }
 
     /**
      * Method "city" digunakan untuk mendapatkan daftar kota/kabupaten yang ada di Indonesia.
      */
-    public function getCity(): mixed
+    public function getCity(int $idCity = null, int $idProvince = null): mixed
     {
-        return $this->apiCall('/city');
+        return $this->apiCall('/city', [
+            'id' => $idCity,
+            'province' => $idProvince,
+        ], 'GET');
     }
 
     /**
      * Method "subdistrict" digunakan untuk mendapatkan daftar kecamatan yang ada di Indonesia.
      */
-    public function getSubdistrict(): mixed
+    public function getSubdistrict(int $idCity, int $idSubdistrict = null): mixed
     {
-        return $this->apiCall('/subdistrict');
+        return $this->apiCall('/subdistrict', [
+            'id' => $idSubdistrict,
+            'city' => $idCity,
+        ], 'GET');
     }
 
     /**
