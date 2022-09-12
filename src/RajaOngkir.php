@@ -31,7 +31,6 @@ class RajaOngkir
 
         return Http::withHeaders([
             'key' => $this->config['API_KEY'],
-            'content-type' => 'application/x-www-form-urlencoded',
         ])->{strtolower($method)}($url, $payload);
     }
 
